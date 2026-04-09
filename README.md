@@ -57,3 +57,24 @@ dotnet run --project CloudOps.csproj
 - **Azure**: Use `Azure.Monitor.Query` to pull metrics from Azure Monitor
 - **GCP**: Use `Google.Cloud.Monitoring.V3` client library
 - **Alerting**: Swap `AlertEngine` log output for webhooks to PagerDuty / Slack / OpsGenie
+
+## Go QA Toolkit (new)
+
+This repository now includes a lightweight Go-based quality toolkit under `go-tools/`.
+
+### Included command
+
+- `cloudops-lint`: reads `appsettings.json`, calculates a CloudOps config score, and prints warnings/recommendations.
+
+### Usage
+
+```bash
+cd go-tools
+go run ./cmd/cloudops-lint -config ../appsettings.json
+```
+
+### Why this helps
+
+- Gives a fast pre-deploy confidence score for config quality.
+- Detects duplicate monitored endpoints and risky threshold/interval settings.
+- Adds independent tests (`go test ./...`) to keep validation logic reliable.
