@@ -1,0 +1,13 @@
+[package]
+name        = "cloudops"
+version     = "0.1.0"
+edition     = "2021"
+description = "CloudOps monitoring components in Rust"
+
+[[bin]]
+name = "alert_engine"
+path = "src/alert_engine.rs"
+
+[[bin]]
+name = "metric_series"
+path = "src/metric_series.rs"
